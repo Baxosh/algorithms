@@ -1,0 +1,7 @@
+function sumTwoSmallestNumbers(numbers) {
+	let temp = numbers.reduce((a, b) => a < b)
+
+	console.log(temp)
+}
+
+sumTwoSmallestNumbers([5, 8, 12, 19, 22])
