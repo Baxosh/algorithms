@@ -6,7 +6,7 @@ strings = ['flower', 'flow', 'flight']
 var longestCommonPrefix = function (strings) {
 	const min = Math.min(...strings.map((item) => item.length))
 	let arr = []
-	let result = ''
+	let result
 	for (let j = 0; j < min; j++) {
 		for (let i = 1; i < strings.length; ++i) {
 			if (strings[i - 1][j] === strings[i][j]) result += strings[i][j]
