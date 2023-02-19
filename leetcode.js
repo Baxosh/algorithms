@@ -226,7 +226,7 @@ var loopingAsNested = function (arr) {
 
 // intToRoman(4)
 function convertToRoman(num) {
-    var roman = {
+    const roman = {
         M: 1000,
         CM: 900,
         D: 500,
@@ -241,17 +241,54 @@ function convertToRoman(num) {
         IV: 4,
         I: 1
     }
-    var str = ''
+    let str = ''
 
-    for (var i of Object.keys(roman)) {
-        var q = Math.floor(num / roman[i])
+    for (let i of Object.keys(roman)) {
+        const q = Math.floor(num / roman[i])
+        console.log(q)
         num -= q * roman[i]
         str += i.repeat(q)
     }
 
     return str
 }
-console.log(convertToRoman(80))
+// console.log(convertToRoman(81273))
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var romanToInt = function (s) {
+    const roman = {
+        M: 1000,
+        D: 500,
+        C: 100,
+        L: 50,
+        X: 10,
+        V: 5,
+        I: 1
+    }
+    let res = 0
+    s = s.split('').reverse()
+    s.forEach((e, i) => {
+        if (i === 0) return (res += roman[e])
+        const prev = s[i - 1]
+        const current = s[i]
+
+        if (roman[prev] <= roman[current]) {
+            res += roman[current]
+        }
+        if (roman[prev] > roman[current]) {
+            res -= roman[current]
+        }
+    })
+    return res
+}
+
+const res = romanToInt(
+    'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMCCLXXIII'
+)
+// console.log(res)
 
 // 17. Letter Combinations of a Phone Number
 
