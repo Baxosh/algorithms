@@ -11,7 +11,8 @@ function rainCalculation(nums) {
         // if (nums[index] < nums[index + i]) {
         //     temp.push()
         // }
-        if (nums[index] > nums[r] && nums[index] < nums[l])
+        if (nums[index] > nums[r] && nums[index] < nums[l]) {
+        }
         // console.log(nums[l])
         // console.log(r)
         // console.log('****')
